@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형 혼자 만들어보기</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="css/main.css">
+    <script src="../../html/lib/jquery-3.7.1.min.js"></script>
+    <script src="../lib/jquery-ui.min.js"></script>
+
+    <script>
+        $(function () {
+            //링크이동 방지
+            $('a').click(function (e) {
+                e.preventDefault();
+            });
+
+            //스크롤 시, 헤더 스타일 변경
+            let header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                let scroll = window.scrollY;
+                if (scroll > 100) {
+                    header.classList.add('on');
+                } else {
+                    header.classList.remove('on');
+                };
+            });
+
+            // 더보기 버튼 클릭 시, 버튼 생성
+            let moreBtn = document.querySelectorAll('.cont02 .more_view');
+            let cartBtn = document.querySelectorAll('.cont02 .cart');
+            let starBtn = document.querySelectorAll('.cont02 .star');
+            let moreBtnImage = document.querySelectorAll('.cont02 .more_view img');
+
+            for (let i = 0; i < moreBtn.length; i++) {
+                moreBtn[i].addEventListener('click', () => {
+                    cartBtn[i].classList.toggle('on');
+                    starBtn[i].classList.toggle('on');
+                    if (getComputedStyle(cartBtn[i]).display === 'block') {
+                        moreBtnImage[i].src = 'img/plus-icon.png';
+                    } else {
+                        moreBtnImage[i].src = 'img/Group 70.png';
+                    };
+                });
+            };
+
+            //탭메뉴
+            let tabBtn = document.querySelectorAll('.cont03 .tabMenu');
+            let tabList = document.querySelectorAll('.cont03 .item_list');
+
+            for (let i = 0; i < tabBtn.length; i++) {
+                tabBtn[i].addEventListener('click', () => {
+                    tabBtn.forEach((item) => {
+                        item.classList.remove('on')
+                    });
+                    tabBtn[i].classList.add('on');
+                    tabList.forEach((item) => {
+                        item.classList.remove('on')
+                    });
+                    tabList[i].classList.add('on');
+                });
+            };
+
+            //마우스 호버 시, 이미지 변경
+            let bigImage = document.querySelector('.cont04 .item_box .item img');
+            let smallBox = document.querySelectorAll('.cont04 .item_box .item_list figure');
+            let smallBoxImage = document.querySelectorAll('.cont04 .item_box .item_list img');
+            let bigImageTitle = document.querySelector('.cont04 .item_box .item h4');
+            let bigImagePrice = document.querySelector('.cont04 .item_box .item strong');
+            let smallBoxTitle = document.querySelectorAll('.cont04 .item_box .item_list h4');
+            let smallBoxPrice = document.querySelectorAll('.cont04 .item_box .item_list strong');
+            console.log(bigImageTitle)
+            console.log(smallBoxTitle)
+
+            for (let i = 0; i < smallBox.length; i++) {
+                smallBox[i].addEventListener('mouseenter', () => {
+                    bigImage.src = smallBoxImage[i].src;
+                    bigImageTitle.innerHTML = smallBoxTitle[i].innerHTML;
+                    bigImagePrice.innerHTML = smallBoxPrice[i].innerHTML;
+                    smallBox.forEach((item => {
+                        item.classList.remove('on');
+                    }));
+                    smallBox[i].classList.add('on');
+                });
+            };
+
+            // 버튼 클릭 시, 이미지 변경
+            let image = document.querySelectorAll('.cont05.mobile .image a');
+            let pageBtn = document.querySelectorAll('.cont05.mobile .pagination .bullet');
+            let pageBtnImage = document.querySelectorAll('.cont05.mobile .pagination .bullet img');
+            let nextBtn = document.querySelector('.cont05.mobile .pagination .next');
+
+            for (let i = 0; i < pageBtn.length; i++) {
+                pageBtn[i].addEventListener('click', () => {
+                    image.forEach((item) => {
+                        item.classList.remove('on');
+                    });
+                    image[i].classList.add('on');
+                    pageBtnImage.forEach((item) => {
+                        item.src = 'img/Ellipse 2.png';
+                    });
+                    pageBtnImage[i].src = 'img/Ellipse 4.png';
+                });
+            };
+
+            let i = 0;
+            nextBtn.addEventListener('click', () => {
+                i++;
+                if (i >= pageBtnImage.length) {
+                    i = 0;
+                }
+                image.forEach((item) => {
+                    item.classList.remove('on');
+                });
+                image[i].classList.add('on');
+                pageBtnImage.forEach((item) => {
+                    item.src = 'img/Ellipse 2.png';
+                });
+                pageBtnImage[i].src = 'img/Ellipse 4.png';
+            });
+
+            // 이미지 클릭 시, 이미지 변경
+            let bigItem = document.querySelector('.cont06.mobile .inner .big_image > a figure > img');
+            let bigItemText = document.querySelector('.cont06.mobile .inner .big_image > a figure .text');
+            let smallItem = document.querySelectorAll('.cont06.mobile .inner .small_image > figure');
+            let smallItemImage = document.querySelectorAll('.cont06.mobile .inner .small_image > figure > img');
+            let smallItemText = document.querySelectorAll('.cont06.mobile .inner .small_image > figure .text');
+
+            for (let i = 0; i < smallItem.length; i++) {
+                smallItem[i].addEventListener('click', () => {
+                    bigItem.src = smallItemImage[i].src;
+                    bigItemText.innerHTML = smallItemText[i].innerHTML
+                    smallItem.forEach((item) => {
+                        item.classList.remove('on');
+                    });
+                    smallItem[i].classList.add('on');
+                });
+            };
+
+            //가로스크롤
+            let scrollContainer = document.querySelector(".cont02 .item_list");
+            $(window).resize(function () {
+                if ($(window).width() < 768) {
+                    scrollContainer.addEventListener("wheel", (e) => {
+                        e.preventDefault();
+                        scrollContainer.scrollLeft += e.deltaY;
+                        //deltaY: 스크롤 Y값 반환.
+                        //스크롤 하는 만큼 숫자를 반환해서 왼쪽으로 스크롤함. 
+                        //아래로 스크롤하면 양수 반환, 위로 스크롤 하면 음수 반환.
+                    });
+                } else if ($(window).width() > 768) {
+                    scrollContainer.addEventListener("wheel", (e) => {
+
+                    });
+                };
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <header class="header" id="header">
+            <div class="inner">
+                <h1 class="logo">
+                    <a href="#">
+                        <img src="img/image 6.png" alt="로고">
+                    </a>
+                </h1><!-- .logo end -->
+                <nav class="pc_nav">
+                    <ul>
+                        <li><a href="#">Candel</a></li>
+                        <li><a href="#">Diffuser</a></li>
+                        <li><a href="#">Props</a></li>
+                        <li><a href="#">Gift</a></li>
+                    </ul>
+                </nav><!-- .pc_nav end -->
+                <div class="util">
+                    <a href="#">
+                        <img src="img/Vector.png" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="img/Vector-1.png" alt="">
+                    </a>
+                    <a href="#">
+                        <img src="img/Vector-2.png" alt="">
+                    </a>
+                </div><!-- .util end -->
+
+                <div class="mobile_nav">
+                    <button class="search">
+                        <img src="img/Vector.png" alt="검색">
+                    </button>
+                    <button class="menu_open">
+                        <img src="img/메뉴검정.png" alt="메뉴열기">
+                    </button>
+                </div><!-- .mobile_nav end -->
+            </div><!-- .inner end -->
+        </header><!-- .header end -->
+
+        <main class="main_visual">
+            <figure>
+                <img class="pc_main" src="img/Rectangle 53.jpg" alt="">
+                <img class="mobile_main" src="img/모바일메인.png" alt="">
+            </figure>
+        </main><!-- .main_visual -->
+
+        <section class="cont01">
+            <div class="inner">
+                <img class="logo" src="img/logo.png" alt="로고">
+                <div class="item_list">
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/𝑣𝑎𝑛𝑖𝑙𝑙𝑎.jfif" alt="candle">
+                            </figure>
+                            <h4>Candel</h4>
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/ab77fd28-c85f-4f48-967c-b6efb2197841.jfif" alt="diffuser">
+                            </figure>
+                            <h4>Diffuser</h4>
+                        </a>
+                    </div><!-- .item end -->
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/VASE OPALINE - JADÉITE.jfif" alt="prop">
+                            </figure>
+                            <h4>Prop</h4>
+                        </a>
+                    </div><!-- .item end -->
+                </div><!-- .item_list end -->
+            </div>
+
+        </section><!-- .cont01 end -->
+
+
+        <section class="cont02">
+            <div class="inner">
+                <div class="title">
+                    <h2>New</h2>
+                    <h2>Product</h2>
+                    <p>에프오네이처에서 더 좋은 제품으로 찾아온 신상품을 만나보세요.</p>
+                </div><!-- .title end -->
+                <div class="item_list">
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/item-normal.jpg" alt="브라운 베이직 디퓨저 100ml">
+                                <div class="icon">
+                                    <a class="star" href="#">
+                                        <img src="img/cart-icon-1.png" alt="">
+                                    </a>
+                                    <a class="cart" href="#">
+                                        <img src="img/cart-icon.png" alt="">
+                                    </a>
+                                    <a class="more_view" href="#">
+                                        <img src="img/Group 70.png" alt="">
+                                    </a>
+                                </div><!-- .icon end -->
+                            </figure>
+                            <h4>브라운 베이직 디퓨저 100ml</h4>
+                            <strong>19,800원</strong>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/item--image.jpg" alt="버블폼캔들">
+                                <div class="icon">
+                                    <a class="star" href="#">
+                                        <img src="img/cart-icon-1.png" alt="">
+                                    </a>
+                                    <a class="cart" href="#">
+                                        <img src="img/cart-icon.png" alt="">
+                                    </a>
+                                    <a class="more_view" href="#">
+                                        <img src="img/Group 70.png" alt="">
+                                    </a>
+                                </div><!-- .icon end -->
+                            </figure>
+                            <h4>버블폼캔들</h4>
+                            <strong>15,800원</strong>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/item-normal.jpg" alt="브라운 베이직 디퓨저 100ml">
+                                <div class="icon">
+                                    <a class="star" href="#">
+                                        <img src="img/cart-icon-1.png" alt="">
+                                    </a>
+                                    <a class="cart" href="#">
+                                        <img src="img/cart-icon.png" alt="">
+                                    </a>
+                                    <a class="more_view" href="#">
+                                        <img src="img/Group 70.png" alt="">
+                                    </a>
+                                </div><!-- .icon end -->
+                            </figure>
+                            <h4>브라운 베이직 디퓨저 100ml</h4>
+                            <strong>19,800원</strong>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/item-normal.jpg" alt="브라운 베이직 디퓨저 100ml">
+                                <div class="icon">
+                                    <a class="star" href="#">
+                                        <img src="img/cart-icon-1.png" alt="">
+                                    </a>
+                                    <a class="cart" href="#">
+                                        <img src="img/cart-icon.png" alt="">
+                                    </a>
+                                    <a class="more_view" href="#">
+                                        <img src="img/Group 70.png" alt="">
+                                    </a>
+                                </div><!-- .icon end -->
+                            </figure>
+                            <h4>브라운 베이직 디퓨저 100ml</h4>
+                            <strong>19,800원</strong>
+                        </a>
+                    </div><!-- .item end -->
+
+                </div><!-- .item_list end -->
+            </div><!-- .inner end -->
+        </section><!-- .cont02 end -->
+
+
+        <div class="bg_image">
+            <img src="img/Rectangle 59.png" alt="배경이미지">
+        </div><!-- .bg_image end -->
+
+
+        <section class="cont03">
+            <div class="inner">
+                <div class="title">
+                    <h2>F5NATURE</h2>
+                    <p>평범한 일상에 감성을 더하다.</p>
+                </div><!-- .title end -->
+
+                <div class="menu">
+                    <ul>
+                        <li class="tabMenu on"><a href="#">Candle</a></li>
+                        <li class="tabMenu"><a href="#">Diffuser</a></li>
+                        <li class="tabMenu"><a href="#">Prop</a></li>
+                    </ul>
+                    <img src="img/Vector-44-1.png" alt="">
+                </div><!-- .menu end -->
+
+                <div class="item_list on">
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/6160c2d1-414d-4ce2-8d94-128a732284f6.jfif" alt="블럭캔들">
+                            </figure>
+                            <h4>몽글캔들</h4>
+                            <strong>11,800원</strong>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/qq.jfif" alt="블럭캔들">
+                            </figure>
+                            <h4>진주조개캔들</h4>
+                            <strong>15,800원</strong>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/53732a5c-0b62-498a-9be7-0288ffd1ad81.jfif" alt="블럭캔들">
+                            </figure>
+                            <h4>하트캔들</h4>
+                            <strong>6,000원</strong>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Bougies Decoratives Parfumées faites à Paris.jfif" alt="블럭캔들">
+                            </figure>
+                            <h4>구름캔들 SET</h4>
+                            <strong>21,800원</strong>
+                        </a>
+                    </div><!-- .item end -->
+                </div><!-- .item_list end -->
+
+                <div class="item_list">
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 29.jpg" alt="블럭캔들">
+                            </figure>
+                            <h4>화이트 디퓨저 100ml</h4>
+                            <strong>23,400원</strong>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 29.jpg" alt="블럭캔들">
+                            </figure>
+                            <h4>화이트 디퓨저 100ml</h4>
+                            <strong>23,400원</strong>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 29.jpg" alt="블럭캔들">
+                            </figure>
+                            <h4>화이트 디퓨저 100ml</h4>
+                            <strong>23,400원</strong>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 29.jpg" alt="블럭캔들">
+                            </figure>
+                            <h4>화이트 디퓨저 100ml</h4>
+                            <strong>23,400원</strong>
+                        </a>
+                    </div><!-- .item end -->
+                </div><!-- .item_list end -->
+
+                <div class="item_list">
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 26.jpg" alt="블럭캔들">
+                            </figure>
+                            <h4>꽃모양캔들</h4>
+                            <strong>13,400원</strong>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 26.jpg" alt="블럭캔들">
+                            </figure>
+                            <h4>꽃모양캔들</h4>
+                            <strong>13,400원</strong>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 26.jpg" alt="블럭캔들">
+                            </figure>
+                            <h4>꽃모양캔들</h4>
+                            <strong>13,400원</strong>
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 26.jpg" alt="블럭캔들">
+                            </figure>
+                            <h4>꽃모양캔들</h4>
+                            <strong>13,400원</strong>
+                        </a>
+                    </div><!-- .item end -->
+                </div><!-- .item_list end -->
+
+                <div class="mobile_more_view">
+                    <a href="#">더보기</a>
+                </div>
+            </div><!-- .inner end -->
+        </section><!-- .cont03 end -->
+
+
+        <section class="cont04">
+            <div class="inner">
+                <div class="title">
+                    <h2>Weekly Best</h2>
+                    <p>한주간 인기 아이템을 확인하세요</p>
+                </div><!-- .title end -->
+
+                <div class="item_box">
+                    <div class="item">
+                        <a href="#">
+                            <figure>
+                                <img src="img/dd.jfif" alt="사각디퓨저">
+                            </figure>
+                            <div class="text">
+                                <h4>몽글몽글캔들</h4>
+                                <strong>23,200원</strong>
+                            </div><!-- .text end -->
+                        </a>
+                    </div><!-- .item end -->
+
+                    <div class="item_list">
+                        <figure class="on">
+                            <img src="img/dd.jfif" alt="">
+                            <h4>몽글몽글캔들</h4>
+                            <strong>23,200원</strong>
+                        </figure>
+                        <figure>
+                            <img src="img/Retro Goblet.jfif" alt="">
+                            <h4>포도잔</h4>
+                            <strong>35,900원</strong>
+                        </figure>
+                        <figure>
+                            <img src="img/Seashell Candle  Shell Candle Pastel Dreamy Aesthetic Vibe - Etsy.jfif" alt="">
+                            <h4>조개캔들</h4>
+                            <strong>17,200원</strong>
+                        </figure>
+                        <figure>
+                            <img src="img/Cloud soy candles - Big _ Nude.jfif" alt="">
+                            <h4>구름캔들</h4>
+                            <strong>25,800원</strong>
+                        </figure>
+                        <figure>
+                            <img src="img/CANDLE DERCOR YOUR HOUSE - CANDLE HANDMADE.jfif" alt="">
+                            <h4>몽글캔들</h4>
+                            <strong>22,900원</strong>
+                        </figure>
+                        <figure>
+                            <img src="img/블루밍앤미.jfif" alt="">
+                            <h4>로즈 디퓨저 100ml</h4>
+                            <strong>16,900원</strong>
+                        </figure>
+                    </div><!-- .itme_list end -->
+                </div><!-- .item_box end -->
+            </div><!-- .inner end -->
+        </section><!-- .cont04 end -->
+
+
+        <section class="cont05 pc">
+            <div class="inner">
+                <div class="item big_item">
+                    <a href="#">
+                        <figure>
+                            <img src="img/Rectangle 55.jpg" alt="">
+                        </figure>
+                    </a>
+                    <a href="#">
+                        <figure>
+                            <img src="img/Rectangle 57.jpg" alt="">
+                        </figure>
+                    </a>
+                </div><!-- .big_item end -->
+                <div class="item small_item">
+                    <a href="#">
+                        <figure>
+                            <img src="img/Rectangle 58.jpg" alt="">
+                        </figure>
+                    </a>
+                    <a href="#">
+                        <figure>
+                            <img src="img/Rectangle 56.jpg" alt="">
+                        </figure>
+                    </a>
+                </div><!-- .small_item end -->
+            </div><!-- .inner end -->
+        </section><!-- .cont05 end -->
+
+        <section class="cont05 mobile">
+            <div class="image">
+                <a class="on" href="#">
+                    <figure>
+                        <img src="img/Rectangle 55.jpg" alt="">
+                    </figure>
+                </a>
+                <a href="#">
+                    <figure>
+                        <img src="img/Rectangle 57.jpg" alt="">
+                    </figure>
+                </a>
+                <a href="#">
+                    <figure>
+                        <img src="img/Rectangle 58.jpg" alt="">
+                    </figure>
+                </a>
+                <a href="#">
+                    <figure>
+                        <img src="img/Rectangle 56.jpg" alt="">
+                    </figure>
+                </a>
+            </div><!-- .image end -->
+            <div class="pagination">
+                <button class="bullet">
+                    <img src="img/Ellipse 4.png" alt="">
+                </button>
+                <button class="bullet">
+                    <img src="img/Ellipse 2.png" alt="">
+                </button>
+                <button class="bullet">
+                    <img src="img/Ellipse 2.png" alt="">
+                </button>
+                <button class="bullet">
+                    <img src="img/Ellipse 2.png" alt="">
+                </button>
+                <button class="next">
+                    <img src="img/Vector-12.png" alt="">
+                </button>
+            </div><!-- .page end -->
+        </section>
+
+
+        <section class="cont06 pc">
+            <div class="inner">
+                <div class="title">
+                    <h2>MD PICK</h2>
+                    <p>다른 고객들은 이 상품을 보고 있어요.</p>
+                </div><!-- .title end -->
+            </div><!-- .inner end -->
+
+            <div class="swiper md_pick">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 60.jpg" alt="">
+                                <div class="text">
+                                    <h4>화이트 디퓨저 100ml</h4>
+                                    <strong>23,400원</strong>
+                                </div><!-- .text -->
+                            </figure>
+                        </a>
+                    </div><!-- .swiper-slide end -->
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 60.jpg" alt="">
+                                <div class="text">
+                                    <h4>화이트 디퓨저 100ml</h4>
+                                    <strong>23,400원</strong>
+                                </div><!-- .text -->
+                            </figure>
+                        </a>
+                    </div><!-- .swiper-slide end -->
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 62.jpg" alt="">
+                                <div class="text">
+                                    <h4>화이트 디퓨저 100ml</h4>
+                                    <strong>23,400원</strong>
+                                </div><!-- .text -->
+                            </figure>
+                        </a>
+                    </div><!-- .swiper-slide end -->
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 61.jpg" alt="">
+                                <div class="text">
+                                    <h4>화이트 디퓨저 100ml</h4>
+                                    <strong>23,400원</strong>
+                                </div><!-- .text -->
+                            </figure>
+                        </a>
+                    </div><!-- .swiper-slide end -->
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 61.jpg" alt="">
+                                <div class="text">
+                                    <h4>화이트 디퓨저 100ml</h4>
+                                    <strong>23,400원</strong>
+                                </div><!-- .text -->
+                            </figure>
+                        </a>
+                    </div><!-- .swiper-slide end -->
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 61.jpg" alt="">
+                                <div class="text">
+                                    <h4>화이트 디퓨저 100ml</h4>
+                                    <strong>23,400원</strong>
+                                </div><!-- .text -->
+                            </figure>
+                        </a>
+                    </div><!-- .swiper-slide end -->
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 60.jpg" alt="">
+                                <div class="text">
+                                    <h4>화이트 디퓨저 100ml</h4>
+                                    <strong>23,400원</strong>
+                                </div><!-- .text -->
+                            </figure>
+                        </a>
+                    </div><!-- .swiper-slide end -->
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 60.jpg" alt="">
+                                <div class="text">
+                                    <h4>화이트 디퓨저 100ml</h4>
+                                    <strong>23,400원</strong>
+                                </div><!-- .text -->
+                            </figure>
+                        </a>
+                    </div><!-- .swiper-slide end -->
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <figure>
+                                <img src="img/Rectangle 60.jpg" alt="">
+                                <div class="text">
+                                    <h4>화이트 디퓨저 100ml</h4>
+                                    <strong>23,400원</strong>
+                                </div><!-- .text -->
+                            </figure>
+                        </a>
+                    </div><!-- .swiper-slide end -->
+                </div><!-- .swiper-wrapper end -->
+            </div><!-- .md_pick end -->
+        </section><!-- .cont06 end -->
+
+
+        <section class="cont06 mobile">
+            <div class="inner">
+                <div class="big_image">
+                    <a href="#">
+                        <figure>
+                            <img src="img/Rectangle 61.jpg" alt="">
+                            <div class="text">
+                                <h4>딸기캔들</h4>
+                                <strong>10,800원</strong>
+                                <div class="option">
+                                    <span><img src="img/Ellipse 6.png" alt=""></span>
+                                    <span><img src="img/Ellipse 7.png" alt=""></span>
+                                    <span><img src="img/Ellipse 8.png" alt=""></span>
+                                    <span><img src="img/Ellipse 9.png" alt=""></span>
+                                    <span><img src="img/Ellipse 10.png" alt=""></span>
+                                </div><!-- .option end -->
+                            </div><!-- .text end -->
+                        </figure>
+                    </a>
+
+                </div><!-- .big_image end -->
+                <div class="small_image">
+                    <figure class="on">
+                        <img src="img/Rectangle 61.jpg" alt="">
+                        <div class="text">
+                            <h4>딸기캔들</h4>
+                            <strong>10,800원</strong>
+                            <div class="option">
+                                <span><img src="img/Ellipse 6.png" alt=""></span>
+                                <span><img src="img/Ellipse 7.png" alt=""></span>
+                                <span><img src="img/Ellipse 8.png" alt=""></span>
+                                <span><img src="img/Ellipse 9.png" alt=""></span>
+                                <span><img src="img/Ellipse 10.png" alt=""></span>
+                            </div><!-- .option end -->
+                        </div><!-- .text end -->
+                    </figure>
+                    <figure>
+                        <img src="img/Rectangle 60.jpg" alt="">
+                        <div class="text">
+                            <h4>화이트 디퓨저</h4>
+                            <strong>23,400원</strong>
+                            <div class="option">
+                                <span>100ml</span>
+                                <span>200ml</span>
+                                <span>300ml</span>
+                            </div><!-- .option end -->
+                        </div><!-- .text end -->
+                    </figure>
+                    <figure>
+                        <img src="img/Rectangle 15.jpg" alt="">
+                        <div class="text">
+                            <h4>사각캔들</h4>
+                            <strong>20,600원</strong>
+                            <div class="option">
+                                <span>small</span>
+                                <span>medium</span>
+                                <span>large</span>
+                            </div><!-- .option end -->
+                        </div><!-- .text end -->
+                    </figure>
+                    <figure>
+                        <img src="img/Rectangle 32.jpg" alt="">
+                        <div class="text">
+                            <h4>나뭇가지</h4>
+                            <strong>30,800원</strong>
+                            <div class="option">
+                                <span>wood</span>
+                                <span>sinamon</span>
+                            </div><!-- .option end -->
+                        </div><!-- .text end -->
+                    </figure>
+                </div><!-- .small_image end -->
+            </div><!-- .inner end -->
+
+        </section><!-- .cont06 end -->
+
+
+        <footer class="footer" id="footer">
+            <div class="footer_top">
+                <div>
+                    <span>상담문의</span>
+                    <span>010-5506-6019</span>
+                </div>
+                <ul>
+                    <li>
+                        <strong>고객센터</strong>
+                        <p>평일 : 10:00 ~ 18:00 (점심시간 12:00 ~ 13:00)
+                            <br /> 고객센터 운영시간에 순차적으로 답변드리겠습니다.
+                            <br />토요일, 일요일, 공휴일 휴무
+                            <br />부재시 문자 남겨주시면 확인 후 연락드리겠습니다.
+                        </p>
+                    </li>
+                    <li>
+                        <strong>계좌번호</strong>
+                        <p>예금주 : 김정식(비엔컴퍼니)
+                            <br />국민은행 774302-01-530028
+                            <br />하나은행 703-910411-61107
+                            <br />기업은행 190-116116-01-017
+                        </p>
+                    </li>
+                    <li>
+                        <div>
+                            <strong>반품배송지</strong>
+                            <p>광주광역시 북구 팜판로 184 2층 F5NATURE</p>
+                        </div>
+                        <div>
+                            <strong class="car">
+                                <img src="img/Vector-3.png" alt="">
+                                배송조회
+                            </strong>
+                            <input type="text" placeholder="운송장 번호">
+                        </div>
+                    </li>
+                    <li class="mobile">
+                        <strong>기업정보</strong>
+                        <img src="img/vector-5.png" alt="">
+                    </li><!-- .mobile -->
+                </ul>
+            </div><!-- .footer_top end -->
+            <div class="footer_bottom">
+                <div>
+                    <p>법인명(상호) : 비엔컴퍼니 대표자(성명) : 김정식 사업자 등록번호 안내 : 397-21-00840
+                        <br />통신판매업 신고 : 제 2018-광주북구-0873 호 [사업자정보확인] 개인정보보호책임자 : 김정식(bncompany2018@naver.com)
+                        <br />전화 : 010-8690-4049 주소 : 61155 광주광역시 북구 참판로 184 (두암동) 2층 F5NATURE
+                    </p>
+                </div>
+                <p>Copyright © F5NATURE. All rights reserved.</p>
+            </div><!-- .footer_bottom end -->
+        </footer><!-- .footer end -->
+
+        <div class="bar">
+            <div class="inner">
+                <button>
+                    <img src="img/Vector (1).svg" alt="">
+                    <span>카테고리</span>
+                </button>
+                <button>
+                    <img src="img/Vector.svg" alt="">
+                    <span>검색</span>
+                </button>
+                <button>
+                    <img src="img/Vector (1).png" alt="">
+                    <span>홈</span>
+                </button>
+                <button>
+                    <img src="img/Vector-31.png" alt="">
+                    <span>즐겨찾기</span>
+                </button>
+                <button>
+                    <img src="img/Vector1.png" alt="">
+                    <span>마이</span>
+                </button>
+            </div><!-- .inner end -->
+
+        </div><!-- .bar end -->
+
+    </div><!-- #wrap end -->
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    var swiper = new Swiper(".md_pick", {
+        slidesPerView: 5.4,
+        spaceBetween: 40,
+        autoplay: {
+            delay: 3500,
+        },
+        speed: 1000,
+        breakpoints: {
+            // 화면의 넓이가 320px 이상일 때
+            320: {
+                slidesPerView: 3.3,
+                spaceBetween: 12
+            },
+            1024: {
+                slidesPerView: 4.2,
+                spaceBetween: 25
+            },
+            1440: {
+                slidesPerView: 5.2,
+                spaceBetween: 36
+            }
+        }
+    });
+</script>
+
+</html>
