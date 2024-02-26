@@ -450,7 +450,6 @@ header .inner .mobile_nav .menu_open img {
     overflow: hidden;
     border: 1px solid #333;
     max-height: 717px;
-    min-height: 400px;
     height: 40.59vw;
 }
 
@@ -1166,6 +1165,10 @@ footer .footer_bottom div p {
         margin-bottom: 4.29%;
     }
 
+     .cont04 .item_box .item figure {
+        min-height: 400px;
+    }
+
     .cont04 .item_box .item_list {
         width: 100%;
     }
@@ -1284,6 +1287,10 @@ footer .footer_bottom div p {
 
     .cont03 .item_list .item strong {
         font-size: 16px;
+    }
+
+     .cont04 .item_box .item figure {
+        min-height: 300px;
     }
 
     footer {
