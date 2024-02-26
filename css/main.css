@@ -449,6 +449,7 @@ header .inner .mobile_nav .menu_open img {
     border-radius: 50% 50% 0 0;
     overflow: hidden;
     border: 1px solid #333;
+    max-height: 717.14px;
     height: 40.59vw;
 }
 
