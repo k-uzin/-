@@ -361,7 +361,7 @@ header .inner .mobile_nav .menu_open img {
 }
 
 .cont03 .item_list .item figure {
-    height: 80%;
+    height: 30vw;
     border-radius: 15px;
     overflow: hidden;
 }
@@ -1087,6 +1087,10 @@ footer .footer_bottom div p {
 
     .cont03 .item_list .item:last-child {
         display: block;
+    }
+
+    .cont03 .item_list .item figure {
+        height: 44vw;
     }
 
     .cont03 .item_list .item h4 {
