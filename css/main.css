@@ -690,7 +690,7 @@ header .inner .mobile_nav .menu_open img {
     display: none;
 }
 
-.cont06.mobile .inner {
+.cont06.mobile .inner .list{
     display: flex;
     justify-content: space-between;
 }
