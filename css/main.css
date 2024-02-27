@@ -361,6 +361,7 @@ header .inner .mobile_nav .menu_open img {
 }
 
 .cont03 .item_list .item figure {
+    max-height: 456px;
     height: 30vw;
     border-radius: 15px;
     overflow: hidden;
