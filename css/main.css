@@ -516,7 +516,7 @@ header .inner .mobile_nav .menu_open img {
 .cont05 .inner .item {
     display: flex;
     flex-direction: column;
-    row-gap: 36px;
+    row-gap: 2vw;
 }
 
 .cont05 .inner .big_item {
