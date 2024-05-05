@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>반응형 혼자 만들어보기</title>
+    <title>F5NATURE</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/main.css">
     <script src="lib/jquery-3.7.1.min.js"></script>
@@ -86,7 +86,7 @@
                 });
             };
 
-            // 버튼 클릭 시, 이미지 변경
+            // 버튼 클릭 시, 이미지 변경(모바일)
             let image = document.querySelectorAll('.cont05.mobile .image a');
             let pageBtn = document.querySelectorAll('.cont05.mobile .pagination .bullet');
             let pageBtnImage = document.querySelectorAll('.cont05.mobile .pagination .bullet img');
@@ -121,7 +121,7 @@
                 pageBtnImage[i].src = 'img/Ellipse 4.png';
             });
 
-            // 이미지 클릭 시, 이미지 변경
+            // 이미지 클릭 시, 이미지 변경(모바일)
             let bigItem = document.querySelector('.cont06.mobile .inner .big_image > a figure > img');
             let bigItemText = document.querySelector('.cont06.mobile .inner .big_image > a figure .text');
             let smallItem = document.querySelectorAll('.cont06.mobile .inner .small_image > figure');
@@ -138,25 +138,6 @@
                     smallItem[i].classList.add('on');
                 });
             };
-
-            //가로스크롤
-            let scrollContainer = document.querySelector(".cont02 .item_list");
-            $(window).resize(function () {
-                if ($(window).width() < 768) {
-                    scrollContainer.addEventListener("wheel", (e) => {
-                        e.preventDefault();
-                        scrollContainer.scrollLeft += e.deltaY;
-                        //deltaY: 스크롤 Y값 반환.
-                        //스크롤 하는 만큼 숫자를 반환해서 왼쪽으로 스크롤함. 
-                        //아래로 스크롤하면 양수 반환, 위로 스크롤 하면 음수 반환.
-                    });
-                } else if ($(window).width() > 768) {
-                    scrollContainer.addEventListener("wheel", (e) => {
-
-                    });
-                };
-            });
-
         });
     </script>
 </head>
@@ -172,7 +153,7 @@
                 </h1><!-- .logo end -->
                 <nav class="pc_nav">
                     <ul>
-                        <li><a href="#">Candel</a></li>
+                        <li><a href="#">Candle</a></li>
                         <li><a href="#">Diffuser</a></li>
                         <li><a href="#">Props</a></li>
                         <li><a href="#">Gift</a></li>
@@ -180,13 +161,13 @@
                 </nav><!-- .pc_nav end -->
                 <div class="util">
                     <a href="#">
-                        <img src="img/Vector.png" alt="">
+                        <img src="img/Vector.png" alt="검색">
                     </a>
                     <a href="#">
-                        <img src="img/Vector-1.png" alt="">
+                        <img src="img/Vector-1.png" alt="마이페이지">
                     </a>
                     <a href="#">
-                        <img src="img/Vector-2.png" alt="">
+                        <img src="img/Vector-2.png" alt="장바구니">
                     </a>
                 </div><!-- .util end -->
 
@@ -203,8 +184,8 @@
 
         <main class="main_visual">
             <figure>
-                <img class="pc_main" src="img/Rectangle 53.jpg" alt="">
-                <img class="mobile_main" src="img/모바일메인.png" alt="">
+                <img class="pc_main" src="img/Rectangle 53.jpg" alt="메인이미지">
+                <img class="mobile_main" src="img/모바일메인.png" alt="메인이미지">
             </figure>
         </main><!-- .main_visual -->
 
@@ -215,15 +196,15 @@
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/𝑣𝑎𝑛𝑖𝑙𝑙𝑎.jfif" alt="candle">
+                                <img src="img/weddingcandle.jpg" alt="candle">
                             </figure>
-                            <h4>Candel</h4>
+                            <h4>Candle</h4>
                         </a>
                     </div><!-- .item end -->
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/ab77fd28-c85f-4f48-967c-b6efb2197841.jfif" alt="diffuser">
+                                <img src="img/디퓨저.jpg" alt="diffuser">
                             </figure>
                             <h4>Diffuser</h4>
                         </a>
@@ -253,84 +234,84 @@
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/item-normal.jpg" alt="브라운 베이직 디퓨저 100ml">
+                                <img src="img/new-item_image-01.jpg" alt="브라운 베이직 디퓨저 100ml">
                                 <div class="icon">
                                     <a class="star" href="#">
-                                        <img src="img/cart-icon-1.png" alt="">
+                                        <img src="img/cart-icon-1.png" alt="찜">
                                     </a>
                                     <a class="cart" href="#">
-                                        <img src="img/cart-icon.png" alt="">
+                                        <img src="img/cart-icon.png" alt="장바구니">
                                     </a>
                                     <a class="more_view" href="#">
-                                        <img src="img/Group 70.png" alt="">
+                                        <img src="img/Group 70.png" alt="더보기">
                                     </a>
                                 </div><!-- .icon end -->
                             </figure>
-                            <h4>브라운 베이직 디퓨저 100ml</h4>
-                            <strong>19,800원</strong>
+                            <h4>브라운 라운드 디퓨저 100ml</h4>
+                            <strong>24,800원</strong>
                         </a>
                     </div><!-- .item end -->
 
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/item--image.jpg" alt="버블폼캔들">
+                                <img src="img/new-item_image-02.jpg" alt="버블폼캔들">
                                 <div class="icon">
                                     <a class="star" href="#">
-                                        <img src="img/cart-icon-1.png" alt="">
+                                        <img src="img/cart-icon-1.png" alt="찜">
                                     </a>
                                     <a class="cart" href="#">
-                                        <img src="img/cart-icon.png" alt="">
+                                        <img src="img/cart-icon.png" alt="장바구니">
                                     </a>
                                     <a class="more_view" href="#">
-                                        <img src="img/Group 70.png" alt="">
+                                        <img src="img/Group 70.png" alt="더보기">
                                     </a>
                                 </div><!-- .icon end -->
                             </figure>
                             <h4>버블폼캔들</h4>
-                            <strong>15,800원</strong>
+                            <strong>11,800원</strong>
                         </a>
                     </div><!-- .item end -->
 
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/item-normal.jpg" alt="브라운 베이직 디퓨저 100ml">
+                                <img src="img/new-item_image-03.jpg" alt="브라운 베이직 디퓨저 100ml">
                                 <div class="icon">
                                     <a class="star" href="#">
-                                        <img src="img/cart-icon-1.png" alt="">
+                                        <img src="img/cart-icon-1.png" alt="찜">
                                     </a>
                                     <a class="cart" href="#">
-                                        <img src="img/cart-icon.png" alt="">
+                                        <img src="img/cart-icon.png" alt="장바구니">
                                     </a>
                                     <a class="more_view" href="#">
-                                        <img src="img/Group 70.png" alt="">
+                                        <img src="img/Group 70.png" alt="더보기">
                                     </a>
                                 </div><!-- .icon end -->
                             </figure>
-                            <h4>브라운 베이직 디퓨저 100ml</h4>
-                            <strong>19,800원</strong>
+                            <h4>하트봉봉캔들</h4>
+                            <strong>11,800원</strong>
                         </a>
                     </div><!-- .item end -->
 
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/item-normal.jpg" alt="브라운 베이직 디퓨저 100ml">
+                                <img src="img/new-item_image-04.jpg" alt="브라운 베이직 디퓨저 100ml">
                                 <div class="icon">
                                     <a class="star" href="#">
-                                        <img src="img/cart-icon-1.png" alt="">
+                                        <img src="img/cart-icon-1.png" alt="찜">
                                     </a>
                                     <a class="cart" href="#">
-                                        <img src="img/cart-icon.png" alt="">
+                                        <img src="img/cart-icon.png" alt="장바구니">
                                     </a>
                                     <a class="more_view" href="#">
-                                        <img src="img/Group 70.png" alt="">
+                                        <img src="img/Group 70.png" alt="더보기">
                                     </a>
                                 </div><!-- .icon end -->
                             </figure>
-                            <h4>브라운 베이직 디퓨저 100ml</h4>
-                            <strong>19,800원</strong>
+                            <h4>블랙 스퀘어 디퓨저 100ml</h4>
+                            <strong>25,800원</strong>
                         </a>
                     </div><!-- .item end -->
 
@@ -357,14 +338,14 @@
                         <li class="tabMenu"><a href="#">Diffuser</a></li>
                         <li class="tabMenu"><a href="#">Prop</a></li>
                     </ul>
-                    <img src="img/Vector-44-1.png" alt="">
+                    <img src="img/Vector-44-1.png" alt="더보기">
                 </div><!-- .menu end -->
 
                 <div class="item_list on">
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/6160c2d1-414d-4ce2-8d94-128a732284f6.jfif" alt="블럭캔들">
+                                <img src="img/6160c2d1-414d-4ce2-8d94-128a732284f6.jfif" alt="몽글캔들">
                             </figure>
                             <h4>몽글캔들</h4>
                             <strong>11,800원</strong>
@@ -374,7 +355,7 @@
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/qq.jfif" alt="블럭캔들">
+                                <img src="img/qq.jfif" alt="진주조개캔들">
                             </figure>
                             <h4>진주조개캔들</h4>
                             <strong>15,800원</strong>
@@ -384,7 +365,7 @@
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/53732a5c-0b62-498a-9be7-0288ffd1ad81.jfif" alt="블럭캔들">
+                                <img src="img/53732a5c-0b62-498a-9be7-0288ffd1ad81.jfif" alt="하트캔들">
                             </figure>
                             <h4>하트캔들</h4>
                             <strong>6,000원</strong>
@@ -394,7 +375,7 @@
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/Bougies Decoratives Parfumées faites à Paris.jfif" alt="블럭캔들">
+                                <img src="img/Bougies Decoratives Parfumées faites à Paris.jfif" alt="구름캔들">
                             </figure>
                             <h4>구름캔들 SET</h4>
                             <strong>21,800원</strong>
@@ -406,40 +387,40 @@
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 29.jpg" alt="블럭캔들">
+                                <img src="img/diffuser1.jpg" alt="디퓨저 선물세트">
                             </figure>
-                            <h4>화이트 디퓨저 100ml</h4>
-                            <strong>23,400원</strong>
+                            <h4>디퓨저 선물세트</h4>
+                            <strong>44,800원</strong>
                         </a>
                     </div><!-- .item end -->
 
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 29.jpg" alt="블럭캔들">
+                                <img src="img/diffuser2.jpg" alt="룸스프레이">
                             </figure>
-                            <h4>화이트 디퓨저 100ml</h4>
-                            <strong>23,400원</strong>
+                            <h4>룸스프레이</h4>
+                            <strong>21,800원</strong>
                         </a>
                     </div><!-- .item end -->
 
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 29.jpg" alt="블럭캔들">
+                                <img src="img/new-item_image-01.jpg" alt="브라운 라운드 디퓨저">
                             </figure>
-                            <h4>화이트 디퓨저 100ml</h4>
-                            <strong>23,400원</strong>
+                            <h4>브라운 라운드 디퓨저 100ml</h4>
+                            <strong>24,800원</strong>
                         </a>
                     </div><!-- .item end -->
 
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 29.jpg" alt="블럭캔들">
+                                <img src="img/diffuser3.png" alt="디퓨저 리드스틱">
                             </figure>
-                            <h4>화이트 디퓨저 100ml</h4>
-                            <strong>23,400원</strong>
+                            <h4>디퓨저 리드스틱</h4>
+                            <strong>1,500원</strong>
                         </a>
                     </div><!-- .item end -->
                 </div><!-- .item_list end -->
@@ -448,40 +429,40 @@
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 26.jpg" alt="블럭캔들">
+                                <img src="img/product_prop-03.jpg" alt="우드코스터">
                             </figure>
-                            <h4>꽃모양캔들</h4>
-                            <strong>13,400원</strong>
+                            <h4>우드코스터</h4>
+                            <strong>4,500원</strong>
                         </a>
                     </div><!-- .item end -->
 
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 26.jpg" alt="블럭캔들">
+                                <img src="img/product_prop-04.jpg" alt="라탄코스터">
                             </figure>
-                            <h4>꽃모양캔들</h4>
-                            <strong>13,400원</strong>
+                            <h4>라탄코스터</h4>
+                            <strong>5,000원</strong>
                         </a>
                     </div><!-- .item end -->
 
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 26.jpg" alt="블럭캔들">
+                                <img src="img/prop.jpg" alt="시나몬스틱">
                             </figure>
-                            <h4>꽃모양캔들</h4>
-                            <strong>13,400원</strong>
+                            <h4>시나몬스틱</h4>
+                            <strong>4,000원</strong>
                         </a>
                     </div><!-- .item end -->
 
                     <div class="item">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 26.jpg" alt="블럭캔들">
+                                <img src="img/product_prop-02.jpg" alt="빈티지페이퍼">
                             </figure>
-                            <h4>꽃모양캔들</h4>
-                            <strong>13,400원</strong>
+                            <h4>빈티지페이퍼 2P</h4>
+                            <strong>1,000원</strong>
                         </a>
                     </div><!-- .item end -->
                 </div><!-- .item_list end -->
@@ -515,32 +496,32 @@
 
                     <div class="item_list">
                         <figure class="on">
-                            <img src="img/dd.jfif" alt="">
+                            <img src="img/dd.jfif" alt="몽글몽글캔들">
                             <h4>몽글몽글캔들</h4>
                             <strong>23,200원</strong>
                         </figure>
                         <figure>
-                            <img src="img/Retro Goblet.jfif" alt="">
-                            <h4>포도잔</h4>
+                            <img src="img/Retro Goblet.jfif" alt="주렁주렁 포도잔">
+                            <h4>주렁주렁 포도잔</h4>
                             <strong>35,900원</strong>
                         </figure>
                         <figure>
-                            <img src="img/Seashell Candle  Shell Candle Pastel Dreamy Aesthetic Vibe - Etsy.jfif" alt="">
+                            <img src="img/Seashell Candle  Shell Candle Pastel Dreamy Aesthetic Vibe - Etsy.jfif" alt="조개캔들">
                             <h4>조개캔들</h4>
                             <strong>17,200원</strong>
                         </figure>
                         <figure>
-                            <img src="img/Cloud soy candles - Big _ Nude.jfif" alt="">
+                            <img src="img/Bougies Decoratives Parfumées faites à Paris.jfif" alt="구름캔들">
                             <h4>구름캔들</h4>
                             <strong>25,800원</strong>
                         </figure>
                         <figure>
-                            <img src="img/CANDLE DERCOR YOUR HOUSE - CANDLE HANDMADE.jfif" alt="">
+                            <img src="img/candle2.jfif" alt="몽글캔들">
                             <h4>몽글캔들</h4>
                             <strong>22,900원</strong>
                         </figure>
                         <figure>
-                            <img src="img/블루밍앤미.jfif" alt="">
+                            <img src="img/블루밍앤미.jfif" alt="로즈디퓨저">
                             <h4>로즈 디퓨저 100ml</h4>
                             <strong>16,900원</strong>
                         </figure>
@@ -555,24 +536,24 @@
                 <div class="item big_item">
                     <a href="#">
                         <figure>
-                            <img src="img/Rectangle 55.jpg" alt="">
+                            <img src="img/Rectangle 55.jpg" alt="튤립캔들">
                         </figure>
                     </a>
                     <a href="#">
                         <figure>
-                            <img src="img/Rectangle 57.jpg" alt="">
+                            <img src="img/Rectangle 57.jpg" alt="치즈캔들">
                         </figure>
                     </a>
                 </div><!-- .big_item end -->
                 <div class="item small_item">
                     <a href="#">
                         <figure>
-                            <img src="img/Rectangle 58.jpg" alt="">
+                            <img src="img/Rectangle 58.jpg" alt="이불이미지">
                         </figure>
                     </a>
                     <a href="#">
                         <figure>
-                            <img src="img/Rectangle 56.jpg" alt="">
+                            <img src="img/Rectangle 56.jpg" alt="디퓨저">
                         </figure>
                     </a>
                 </div><!-- .small_item end -->
@@ -583,40 +564,40 @@
             <div class="image">
                 <a class="on" href="#">
                     <figure>
-                        <img src="img/Rectangle 55.jpg" alt="">
+                        <img src="img/Rectangle 55.jpg" alt="튤립캔들">
                     </figure>
                 </a>
                 <a href="#">
                     <figure>
-                        <img src="img/Rectangle 57.jpg" alt="">
+                        <img src="img/Rectangle 57.jpg" alt="치즈캔들">
                     </figure>
                 </a>
                 <a href="#">
                     <figure>
-                        <img src="img/Rectangle 58.jpg" alt="">
+                        <img src="img/Rectangle 58.jpg" alt="이불이미지">
                     </figure>
                 </a>
                 <a href="#">
                     <figure>
-                        <img src="img/Rectangle 56.jpg" alt="">
+                        <img src="img/Rectangle 56.jpg" alt="디퓨저">
                     </figure>
                 </a>
             </div><!-- .image end -->
             <div class="pagination">
                 <button class="bullet">
-                    <img src="img/Ellipse 4.png" alt="">
+                    <img src="img/Ellipse 4.png" alt="페이지1">
                 </button>
                 <button class="bullet">
-                    <img src="img/Ellipse 2.png" alt="">
+                    <img src="img/Ellipse 2.png" alt="페이지2">
                 </button>
                 <button class="bullet">
-                    <img src="img/Ellipse 2.png" alt="">
+                    <img src="img/Ellipse 2.png" alt="페이지3">
                 </button>
                 <button class="bullet">
-                    <img src="img/Ellipse 2.png" alt="">
+                    <img src="img/Ellipse 2.png" alt="페이지4">
                 </button>
                 <button class="next">
-                    <img src="img/Vector-12.png" alt="">
+                    <img src="img/Vector-12.png" alt="다음버튼">
                 </button>
             </div><!-- .page end -->
         </section>
@@ -635,10 +616,23 @@
                     <div class="swiper-slide">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 60.jpg" alt="">
+                                <img src="img/qq.jfif" alt="진주조개캔들">
+                                <div class="text">
+                                    <h4>진주조개캔들</h4>
+                                    <strong>15,800원</strong>
+                                </div><!-- .text -->
+                            </figure>
+                        </a>
+                    </div><!-- .swiper-slide end -->
+                    
+                   
+                    <div class="swiper-slide">
+                        <a href="#">
+                            <figure>
+                                <img src="img/ab77fd28-c85f-4f48-967c-b6efb2197841.jfif" alt="화이트 디퓨저">
                                 <div class="text">
                                     <h4>화이트 디퓨저 100ml</h4>
-                                    <strong>23,400원</strong>
+                                    <strong>22,400원</strong>
                                 </div><!-- .text -->
                             </figure>
                         </a>
@@ -646,10 +640,10 @@
                     <div class="swiper-slide">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 60.jpg" alt="">
+                                <img src="img/딸기캔들.jpg" alt="딸기캔들">
                                 <div class="text">
-                                    <h4>화이트 디퓨저 100ml</h4>
-                                    <strong>23,400원</strong>
+                                    <h4>딸기캔들</h4>
+                                    <strong>10,800원</strong>
                                 </div><!-- .text -->
                             </figure>
                         </a>
@@ -657,10 +651,10 @@
                     <div class="swiper-slide">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 62.jpg" alt="">
+                                <img src="img/53732a5c-0b62-498a-9be7-0288ffd1ad81.jfif" alt="하트캔들">
                                 <div class="text">
-                                    <h4>화이트 디퓨저 100ml</h4>
-                                    <strong>23,400원</strong>
+                                    <h4>하트캔들</h4>
+                                    <strong>6,000원</strong>
                                 </div><!-- .text -->
                             </figure>
                         </a>
@@ -668,10 +662,10 @@
                     <div class="swiper-slide">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 61.jpg" alt="">
+                                <img src="img/cakecandle.png" alt="케이크캔들">
                                 <div class="text">
-                                    <h4>화이트 디퓨저 100ml</h4>
-                                    <strong>23,400원</strong>
+                                    <h4>케이크캔들</h4>
+                                    <strong>17,800원</strong>
                                 </div><!-- .text -->
                             </figure>
                         </a>
@@ -679,10 +673,10 @@
                     <div class="swiper-slide">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 61.jpg" alt="">
+                                <img src="img/Retro Goblet.jfif" alt="포도잔">
                                 <div class="text">
-                                    <h4>화이트 디퓨저 100ml</h4>
-                                    <strong>23,400원</strong>
+                                    <h4>주렁주렁포도잔</h4>
+                                    <strong>33,100원</strong>
                                 </div><!-- .text -->
                             </figure>
                         </a>
@@ -690,10 +684,10 @@
                     <div class="swiper-slide">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 61.jpg" alt="">
+                                <img src="img/weddingcandle.jpg" alt="웨딩캔들">
                                 <div class="text">
-                                    <h4>화이트 디퓨저 100ml</h4>
-                                    <strong>23,400원</strong>
+                                    <h4>웨딩캔들</h4>
+                                    <strong>19,800원</strong>
                                 </div><!-- .text -->
                             </figure>
                         </a>
@@ -701,10 +695,10 @@
                     <div class="swiper-slide">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 60.jpg" alt="">
+                                <img src="img/VASE OPALINE - JADÉITE.jfif" alt="화병">
                                 <div class="text">
-                                    <h4>화이트 디퓨저 100ml</h4>
-                                    <strong>23,400원</strong>
+                                    <h4>화병</h4>
+                                    <strong>29,500원</strong>
                                 </div><!-- .text -->
                             </figure>
                         </a>
@@ -712,21 +706,10 @@
                     <div class="swiper-slide">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 60.jpg" alt="">
+                                <img src="img/diffuser1.jpg" alt="디퓨저 선물세트">
                                 <div class="text">
-                                    <h4>화이트 디퓨저 100ml</h4>
-                                    <strong>23,400원</strong>
-                                </div><!-- .text -->
-                            </figure>
-                        </a>
-                    </div><!-- .swiper-slide end -->
-                    <div class="swiper-slide">
-                        <a href="#">
-                            <figure>
-                                <img src="img/Rectangle 60.jpg" alt="">
-                                <div class="text">
-                                    <h4>화이트 디퓨저 100ml</h4>
-                                    <strong>23,400원</strong>
+                                    <h4>디퓨저 선물세트</h4>
+                                    <strong>44,800원</strong>
                                 </div><!-- .text -->
                             </figure>
                         </a>
@@ -746,17 +729,10 @@
                     <div class="big_image">
                         <a href="#">
                             <figure>
-                                <img src="img/Rectangle 61.jpg" alt="">
+                                <img src="img/cakecandle.png" alt="케이크캔들">
                                 <div class="text">
-                                    <h4>딸기캔들</h4>
-                                    <strong>10,800원</strong>
-                                    <div class="option">
-                                        <span><img src="img/Ellipse 6.png" alt=""></span>
-                                        <span><img src="img/Ellipse 7.png" alt=""></span>
-                                        <span><img src="img/Ellipse 8.png" alt=""></span>
-                                        <span><img src="img/Ellipse 9.png" alt=""></span>
-                                        <span><img src="img/Ellipse 10.png" alt=""></span>
-                                    </div><!-- .option end -->
+                                    <h4>케이크캔들</h4>
+                                    <strong>17,800원</strong>
                                 </div><!-- .text end -->
                             </figure>
                         </a>
@@ -764,52 +740,38 @@
                     </div><!-- .big_image end -->
                     <div class="small_image">
                         <figure class="on">
-                            <img src="img/Rectangle 61.jpg" alt="">
+                            <img src="img/cakecandle.png" alt="케이크캔들">
+                            <div class="text">
+                                <h4>케이크캔들</h4>
+                                <strong>17,800원</strong>
+                            </div><!-- .text end -->
+                        </figure>
+                        <figure>
+                            <img src="img/딸기캔들.jpg" alt="딸기캔들">
                             <div class="text">
                                 <h4>딸기캔들</h4>
                                 <strong>10,800원</strong>
                                 <div class="option">
-                                    <span><img src="img/Ellipse 6.png" alt=""></span>
-                                    <span><img src="img/Ellipse 7.png" alt=""></span>
-                                    <span><img src="img/Ellipse 8.png" alt=""></span>
-                                    <span><img src="img/Ellipse 9.png" alt=""></span>
-                                    <span><img src="img/Ellipse 10.png" alt=""></span>
+                                    <span><img src="img/Ellipse 6.png" alt="옵션:초록"></span>
+                                    <span><img src="img/Ellipse 7.png" alt="옵션:주황"></span>
+                                    <span><img src="img/Ellipse 8.png" alt="옵션:빨강"></span>
+                                    <span><img src="img/Ellipse 9.png" alt="옵션:분홍"></span>
+                                    <span><img src="img/Ellipse 10.png" alt="옵션:하양"></span>
                                 </div><!-- .option end -->
                             </div><!-- .text end -->
                         </figure>
                         <figure>
-                            <img src="img/Rectangle 60.jpg" alt="">
+                            <img src="img/ee.jfif" alt="하트캔들">
                             <div class="text">
-                                <h4>화이트 디퓨저</h4>
-                                <strong>23,400원</strong>
-                                <div class="option">
-                                    <span>100ml</span>
-                                    <span>200ml</span>
-                                    <span>300ml</span>
-                                </div><!-- .option end -->
+                                <h4>하트캔들</h4>
+                                <strong>6,000원</strong>
                             </div><!-- .text end -->
                         </figure>
                         <figure>
-                            <img src="img/Rectangle 15.jpg" alt="">
+                            <img src="img/shellcandle.jfif" alt="조개캔들">
                             <div class="text">
-                                <h4>사각캔들</h4>
-                                <strong>20,600원</strong>
-                                <div class="option">
-                                    <span>small</span>
-                                    <span>medium</span>
-                                    <span>large</span>
-                                </div><!-- .option end -->
-                            </div><!-- .text end -->
-                        </figure>
-                        <figure>
-                            <img src="img/Rectangle 32.jpg" alt="">
-                            <div class="text">
-                                <h4>나뭇가지</h4>
-                                <strong>30,800원</strong>
-                                <div class="option">
-                                    <span>wood</span>
-                                    <span>sinamon</span>
-                                </div><!-- .option end -->
+                                <h4>조개캔들</h4>
+                                <strong>17,200원</strong>
                             </div><!-- .text end -->
                         </figure>
                     </div><!-- .small_image end -->
@@ -823,7 +785,7 @@
             <div class="footer_top">
                 <div>
                     <span>상담문의</span>
-                    <span>010-5506-6019</span>
+                    <span>010-5506-0619</span>
                 </div>
                 <ul>
                     <li>
@@ -849,7 +811,7 @@
                         </div>
                         <div>
                             <strong class="car">
-                                <img src="img/Vector-3.png" alt="">
+                                <img src="img/Vector-3.png" alt="배송조회">
                                 배송조회
                             </strong>
                             <input type="text" placeholder="운송장 번호">
@@ -857,7 +819,7 @@
                     </li>
                     <li class="mobile">
                         <strong>기업정보</strong>
-                        <img src="img/vector-5.png" alt="">
+                        <img src="img/vector-5.png" alt="기업정보">
                     </li><!-- .mobile -->
                 </ul>
             </div><!-- .footer_top end -->
@@ -875,23 +837,23 @@
         <div class="bar">
             <div class="inner">
                 <button>
-                    <img src="img/Vector (1).svg" alt="">
-                    <span>카테고리</span>
+                    <img src="img/Vector (1).svg" alt="메뉴">
+                    <span>메뉴</span>
                 </button>
                 <button>
-                    <img src="img/Vector.svg" alt="">
+                    <img src="img/Vector.svg" alt="검색">
                     <span>검색</span>
                 </button>
                 <button>
-                    <img src="img/Vector (1).png" alt="">
+                    <img src="img/Vector (1).png" alt="홈">
                     <span>홈</span>
                 </button>
                 <button>
-                    <img src="img/Vector-31.png" alt="">
-                    <span>즐겨찾기</span>
+                    <img src="img/Vector-31.png" alt="찜">
+                    <span>찜</span>
                 </button>
                 <button>
-                    <img src="img/Vector1.png" alt="">
+                    <img src="img/Vector1.png" alt="마이">
                     <span>마이</span>
                 </button>
             </div><!-- .inner end -->
